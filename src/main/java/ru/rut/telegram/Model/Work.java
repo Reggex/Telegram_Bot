@@ -42,5 +42,5 @@ public class Work {
     )
     private Set<Region> regions = new HashSet<>();
 
-
+    //date->LocalDate->Instant
 }
