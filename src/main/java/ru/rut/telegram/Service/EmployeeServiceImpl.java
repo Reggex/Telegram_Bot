@@ -1,16 +1,15 @@
 package ru.rut.telegram.Service;
 
-import lombok.ToString;
 import org.springframework.stereotype.Service;
-import ru.rut.telegram.Dao.EmployeeDao;
+import ru.rut.telegram.Repo.EmployeeRepo;
 import ru.rut.telegram.Model.Employee;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
 
-    private final EmployeeDao employeeDao;
+    private final EmployeeRepo employeeDao;
 
-    public EmployeeServiceImpl(EmployeeDao employeeDao) {
+    public EmployeeServiceImpl(EmployeeRepo employeeDao) {
         this.employeeDao = employeeDao;
     }
 
