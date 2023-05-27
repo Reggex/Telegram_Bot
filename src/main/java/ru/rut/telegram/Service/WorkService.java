@@ -1,10 +1,13 @@
 package ru.rut.telegram.Service;
 
 import ru.rut.telegram.Model.Employee;
+import ru.rut.telegram.Model.Work;
+
+import java.util.List;
 
 public interface WorkService {
 
-    void addEmployee(Employee employee);
+    List<Work> getEmployeeWork(String login);
 
-    Employee getEmployee(Integer id);
+    void startWork(String login);
 }
