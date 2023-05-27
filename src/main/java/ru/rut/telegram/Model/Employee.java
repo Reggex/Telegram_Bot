@@ -25,8 +25,8 @@ public class Employee {
     @Column(name = "CHAT_ID")
     private String chatId;
 
-    /*@Column(name = "IS_ADMIN")
-    private boolean isAdmin = true;*/
+    @Column(name = "IS_ADMIN")
+    private boolean isAdmin = true;
 
     @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
     private List<Work> workList;
@@ -34,9 +34,10 @@ public class Employee {
     public Employee() {
     }
 
-    public Employee(String login, String chatId) {
+    public Employee(String login, String chatId, boolean isAdmin) {
         this.login = login;
         this.chatId = chatId;
+        this.isAdmin = isAdmin;
     }
 
 }

@@ -7,6 +7,7 @@ import lombok.ToString;
 
 import java.util.Date;
 import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -33,13 +34,13 @@ public class Work {
     @JoinColumn(name = "EMPLOYEE_ID")
     private Employee employee;
 
-    /*@ManyToMany
+    @ManyToMany
     @JoinTable(
             name = "WORK_REGION",
             joinColumns = @JoinColumn(name = "WORK_ID"),
             inverseJoinColumns = @JoinColumn(name = "REGION_ID")
-    )*/
-    /*private Set<Region> regions = new HashSet<>();*/
+    )
+    private Set<Region> regions = new HashSet<>();
 
 
 }
