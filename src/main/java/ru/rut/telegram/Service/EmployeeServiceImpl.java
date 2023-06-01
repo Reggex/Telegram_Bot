@@ -37,4 +37,9 @@ public class EmployeeServiceImpl implements EmployeeService {
     public void create(Employee employee) {
         employeeDao.save(employee);
     }
+    @Override
+    public int get_emploee_id_by_login(String login){
+        Employee employee = employeeDao.findByLogin(login);
+        return employee.getId();
+    }
 }

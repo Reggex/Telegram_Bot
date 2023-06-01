@@ -10,4 +10,5 @@ public interface WorkRegionService {
     void save(WorkRegion workRegion);
 
     List<WorkRegion> getByWork(Work work);
+
 }

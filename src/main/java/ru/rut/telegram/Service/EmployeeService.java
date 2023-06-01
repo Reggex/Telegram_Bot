@@ -11,4 +11,5 @@ public interface EmployeeService {
     boolean checkEmployee(String login);
 
     void create (Employee employee);
+    int get_emploee_id_by_login(String login);
 }

@@ -10,4 +10,6 @@ public interface WorkService {
     List<Work> getEmployeeWork(String login);
 
     void startWork(String login);
+
+    boolean checkEmployee(int userName);
 }

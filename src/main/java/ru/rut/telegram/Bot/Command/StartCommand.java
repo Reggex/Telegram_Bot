@@ -28,7 +28,6 @@ public class StartCommand implements BotCommand{
                 + message.getChatId()));
 
         boolean exists = employeeService.checkEmployee(message.getChat().getUserName());
-
         if (!exists) {
             Employee employee = new Employee(message.getChat().getUserName(), message.getChatId().toString(),false);
             employeeService.create(employee);

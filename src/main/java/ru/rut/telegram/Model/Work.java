@@ -33,7 +33,6 @@ public class Work {
     @ManyToOne
     @JoinColumn(name = "EMPLOYEE_ID")
     private Employee employee;
-
     @ManyToMany
     @JoinTable(
             name = "WORK_REGION",

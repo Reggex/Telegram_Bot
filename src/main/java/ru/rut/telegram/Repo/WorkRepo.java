@@ -10,4 +10,5 @@ import java.util.List;
 public interface WorkRepo extends JpaRepository<Work, Integer> {
 
     List<Work> findAllByEmployeeLogin(String login);
+
 }

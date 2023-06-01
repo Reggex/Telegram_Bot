@@ -1,6 +1,7 @@
 package ru.rut.telegram.Service;
 
 import org.springframework.stereotype.Service;
+import ru.rut.telegram.Model.Employee;
 import ru.rut.telegram.Model.Work;
 import ru.rut.telegram.Model.WorkRegion;
 import ru.rut.telegram.Repo.WorkRegionRepo;
@@ -25,4 +26,5 @@ public class WorkRegionServiceImpl implements WorkRegionService{
     public List<WorkRegion> getByWork(Work work) {
         return workRegionRepo.findByWork(work);
     }
+
 }
