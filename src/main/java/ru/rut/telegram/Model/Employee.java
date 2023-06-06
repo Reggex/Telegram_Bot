@@ -8,15 +8,14 @@ import java.util.List;
 
 @Getter
 @Setter
-@ToString
 @Entity
 @Table(name = "EMPLOYEE")
-public class Employee {
+public class Employee{
 
     @Id
-    @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    @Column(name = "id", nullable = false)
+    private Integer id;
 
     @Column(name = "LOGIN")
     private String login;
@@ -30,6 +29,15 @@ public class Employee {
     @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
     private List<Work> workList;
 
+    @Override
+    public String toString() {
+        return  "Данные о работнике:" + "\n" +
+                "id=" + id + ";  " +
+                "login=" + login + ";  " +
+                "chatId=" + chatId + ";  " +
+                "Администратор=" + isAdmin;
+    }
+
     public Employee() {
     }
 
@@ -38,5 +46,4 @@ public class Employee {
         this.chatId = chatId;
         this.isAdmin = isAdmin;
     }
-
 }

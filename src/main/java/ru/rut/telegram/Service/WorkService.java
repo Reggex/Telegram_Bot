@@ -11,5 +11,7 @@ public interface WorkService {
 
     void startWork(String login);
 
+    void create(Employee employee);
+
     boolean checkEmployee(int userName);
 }

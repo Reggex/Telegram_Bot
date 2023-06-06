@@ -6,7 +6,9 @@ public interface EmployeeService {
 
     void addEmployee(Employee employee);
 
-    Employee getEmployee(Integer id);
+    Employee getEmployee(Integer id)
+            ;
+    Employee getEmployeeByLogin(String login);
 
     boolean checkEmployee(String login);
 

@@ -3,19 +3,17 @@ package ru.rut.telegram.Model;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
 @Getter
 @Setter
 @Entity
-@ToString
 @Table(name = "WORK_REGION")
 public class WorkRegion {
 
     @Id
-    @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    @Column(name = "id", nullable = false)
+    private Integer id;
 
     @ManyToOne
     @JoinColumn(name = "WORK_ID")
@@ -28,4 +26,23 @@ public class WorkRegion {
     @Column(name = "STATE")
     @Enumerated(value = EnumType.STRING)
     private RegionState state;
+
+    public WorkRegion() {
+    }
+
+    public WorkRegion(Work work, Region region) {
+        this.work = work;
+        this.region = region;
+    }
+
+    @Override
+    public String toString() {
+        return "Рабочии регионы:" + "\n" +
+                "id=" + id + "\n" +
+                "Работа:\nId: " + work.getId() + "\n" +
+                "Начало работы=" + work.getStartDate() + "\n" +
+                "Конец работы=" + work.getEndDate() + "\n" +
+                region + ";  " +
+                "Cостояние региона=" + state;
+    }
 }

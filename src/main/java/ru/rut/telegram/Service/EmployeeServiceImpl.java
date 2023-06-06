@@ -7,25 +7,30 @@ import ru.rut.telegram.Model.Employee;
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
 
-    private final EmployeeRepo employeeDao;
+    private final EmployeeRepo employeeRepo;
 
-    public EmployeeServiceImpl(EmployeeRepo employeeDao) {
-        this.employeeDao = employeeDao;
+    public EmployeeServiceImpl(EmployeeRepo employeeRepo) {
+        this.employeeRepo = employeeRepo;
     }
 
     @Override
     public void addEmployee(Employee employee) {
-        employeeDao.save(employee);
+        employeeRepo.save(employee);
     }
 
     @Override
     public Employee getEmployee(Integer id) {
-        return employeeDao.getReferenceById(id);
+        return employeeRepo.getReferenceById(id);
+    }
+
+    @Override
+    public Employee getEmployeeByLogin(String login) {
+        return employeeRepo.findByLogin(login);
     }
 
     @Override
     public boolean checkEmployee(String login) {
-        Employee employee = employeeDao.findByLogin(login);
+        Employee employee = employeeRepo.findByLogin(login);
         if (employee == null){
             return false;
         } else {
@@ -35,11 +40,12 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public void create(Employee employee) {
-        employeeDao.save(employee);
+        employeeRepo.save(employee);
     }
+
     @Override
     public int get_emploee_id_by_login(String login){
-        Employee employee = employeeDao.findByLogin(login);
+        Employee employee = employeeRepo.findByLogin(login);
         return employee.getId();
     }
 }

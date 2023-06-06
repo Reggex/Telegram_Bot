@@ -1,6 +1,7 @@
 package ru.rut.telegram.Model;
 
 import jakarta.persistence.*;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -11,15 +12,14 @@ import java.util.Set;
 
 @Getter
 @Setter
-@ToString
 @Entity
 @Table(name = "WORK")
 public class Work {
 
     @Id
-    @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    @Column(name = "id", nullable = false)
+    private Integer id;
 
     @Column(name = "WORK_DATE")
     private Date workDate;
@@ -33,6 +33,7 @@ public class Work {
     @ManyToOne
     @JoinColumn(name = "EMPLOYEE_ID")
     private Employee employee;
+
     @ManyToMany
     @JoinTable(
             name = "WORK_REGION",
@@ -40,6 +41,20 @@ public class Work {
             inverseJoinColumns = @JoinColumn(name = "REGION_ID")
     )
     private Set<Region> regions = new HashSet<>();
-
     //date->LocalDate->Instant
+
+
+    public Work() {
+    }
+
+    @Override
+    public String toString() {
+        return  "Работа:" + "\n" +
+                "id=" + id + "\n" +
+                "Дата работы=" + workDate + "\n" +
+                "Начало смены=" + startDate + "\n" +
+                "Конец смены=" + endDate + "\n" +
+                employee + "\n" +
+                regions.toString().replaceAll("^\\[|\\]$", "");
+    }
 }
